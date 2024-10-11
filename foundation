@@ -1,0 +1,67 @@
+//
+//  SwiftUIView.swift
+//  moutainapp
+//
+//  Created by foundation program on 10/11/24.
+//
+
+import SwiftUI
+
+struct SwiftUIView: View {
+    var body: some View {
+        TabView {
+            
+            FirstTabView()
+                .tabItem { Label("First Tab", systemImage: "eraser") }
+            SecondTabView()
+                .tabItem { Label("Second Tab", systemImage: "cat") }
+            ThirdTabView()
+                .tabItem { Label("Third Tab", systemImage: "dog") }
+        }
+    }
+}
+
+
+
+#Preview {
+    SwiftUIView()
+}
+
+struct FirstTabView: View {
+    var body: some View{
+        NavigationStack {
+            NavigationLink {
+                DetailView()
+            } label: {
+                Text("First Tab View")
+            }
+        }
+    }
+}
+
+struct SecondTabView: View {
+    var body: some View {
+        NavigationStack{
+            NavigationLink {
+                ContentView()
+            
+            } label: {
+                Text("Second Tab View")
+            }
+        }
+    }
+}
+
+struct ThirdTabView: View {
+    var body: some View {
+        Text("third Tab View")
+    }
+}
+
+struct DetailView: View {
+    var body: some View {
+        Text("Detail View")
+            .navigationTitle("디테일 화면")
+            .navigationBarTitleDisplayMode(.large)
+    }
+}
